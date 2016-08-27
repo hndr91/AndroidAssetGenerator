@@ -11,7 +11,7 @@ package androidassetsgenerator;
  */
 public class Constants {
     public static final String TITLE = "Android Assets Generator";
-    public static final String GO = "GO!";
+    public static final String GO = "Generate!";
     
     /** Open File */
     public static final String OPEN_PANEL_TITLE = "Select Asset";
@@ -32,6 +32,25 @@ public class Constants {
     public static final String XHDPI = "xhdpi";
     public static final String XXHDPI = "xxhdpi";
     public static final String XXXHDPI = "xxxhdpi";
+    
+    /** Prefix and Suffix */
+    public static final String PREFIX = "IC_";
+    public static final String SUFFIX = "-";
+    public static final String SLASH = "/";
+    
+    /** Generate Action */
+    public static final String INFO = "INFO";
+    public static final String WARNING = "WARNING";
+    public static final String ERROR = "ERROR";
+    
+    public static final String ERROR_MESSAGE = "Error : ";
+    public static final String DONE_MESSAGE = "Done!";
+    public static final String OPEN_URL_IS_EMPTY = "Please select asset file!";
+    public static final String OUTPUT_URL_IS_EMPTY = "Please select your output directory!";
+    
+    /** FILE TYPES */
+    public static final String PNG = ".png";
+    public static final String JPG = ".jpg";
     
     /** Font */
     public static final String LUCIA_GRANDE = "Lucia Grande";
