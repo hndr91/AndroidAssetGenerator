@@ -35,8 +35,9 @@ public class Constants {
     
     /** Prefix and Suffix */
     public static final String PREFIX = "IC_";
-    public static final String SUFFIX = "-";
+    public static final String DASH = "-";
     public static final String SLASH = "/";
+    public static final String DOT = ".";
     
     /** Generate Action */
     public static final String INFO = "INFO";
@@ -51,6 +52,15 @@ public class Constants {
     /** FILE TYPES */
     public static final String PNG = ".png";
     public static final String JPG = ".jpg";
+    
+    /** OUTPUT FOLDER */
+    public static final String DRAWABLE = "drawable";
+    public static final String DRAWABLE_LDPI = DRAWABLE+DASH+LDPI;
+    public static final String DRAWABLE_MDPI = DRAWABLE+DASH+MDPI;
+    public static final String DRAWABLE_HDPI = DRAWABLE+DASH+HDPI;
+    public static final String DRAWABLE_XHDPI = DRAWABLE+DASH+XHDPI;
+    public static final String DRAWABLE_XXHDPI = DRAWABLE+DASH+XXHDPI;
+    public static final String DRAWABLE_XXXHDPI = DRAWABLE+DASH+XXXHDPI;
     
     /** Font */
     public static final String LUCIA_GRANDE = "Lucia Grande";

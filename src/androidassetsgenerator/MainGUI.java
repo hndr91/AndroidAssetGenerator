@@ -8,15 +8,10 @@ package androidassetsgenerator;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.io.File;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -39,9 +34,9 @@ public class MainGUI {
     JPanel openPanel, basePanel, outputPanel, sizePanel;
     JComboBox baseSizeCombo;
     JFileChooser openImg = new JFileChooser(), selectOutDir = new JFileChooser();
-    public JCheckBox ldpi, mdpi, hdpi, xhdpi, xxhdpi, xxxhdpi;
-    public File selectedFile, selectedFolder;
-    public String outputDir;
+    JCheckBox ldpi, mdpi, hdpi, xhdpi, xxhdpi, xxxhdpi;
+    File selectedFile, selectedFolder;
+    String outputDir;
 
     public MainGUI() {
         initComponents();
@@ -64,7 +59,7 @@ public class MainGUI {
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.weightx = 1.0;
-        gbc.weighty = 0.125;
+        gbc.weighty = 0.25;
         openPanel = new JPanel();
         openPanel.setBorder(BorderFactory.createTitledBorder(Constants.OPEN_PANEL_TITLE));
         openPanel.setLayout(new GridBagLayout());
@@ -97,7 +92,7 @@ public class MainGUI {
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.weightx = 1.0;
-        gbc.weighty = 0.125;
+        gbc.weighty = 0.25;
         basePanel = new JPanel();
         basePanel.setBorder(BorderFactory.createTitledBorder(Constants.BASE_PANEL_TITLE));
         basePanel.setLayout(new GridBagLayout());
@@ -115,9 +110,6 @@ public class MainGUI {
             Constants.XXHDPI,
             Constants.XXXHDPI,};
         baseSizeCombo = new JComboBox(baseSize);
-        baseSizeCombo.addItemListener((ItemEvent e) -> {
-            baseSizeListener(e);
-        });
         baseSizeCombo.setSelectedIndex(0);
         basePanel.add(baseSizeCombo, basePanelCons);
 
@@ -129,7 +121,7 @@ public class MainGUI {
         gbc.gridx = 0;
         gbc.gridy = 2;
         gbc.weightx = 1.0;
-        gbc.weighty = 0.125;
+        gbc.weighty = 0.25;
         outputPanel = new JPanel();
         outputPanel.setBorder(BorderFactory.createTitledBorder(Constants.OUTPUT_PANEL_TITLE));
         outputPanel.setLayout(new GridBagLayout());
@@ -157,47 +149,12 @@ public class MainGUI {
         mainFrame.add(outputPanel, gbc);
 
         /**
-         * Select Output
+         * Start Button
          */
         gbc.gridx = 0;
         gbc.gridy = 3;
         gbc.weightx = 1.0;
-        gbc.weighty = 0.500;
-        sizePanel = new JPanel();
-        sizePanel.setLayout(new GridLayout(2, 3));
-        sizePanel.setBorder(BorderFactory.createTitledBorder(Constants.SELECT_SIZE_TITLE));
-        ldpi = new JCheckBox(Constants.LDPI);
-        mdpi = new JCheckBox(Constants.MDPI);
-        hdpi = new JCheckBox(Constants.HDPI);
-        xhdpi = new JCheckBox(Constants.XHDPI);
-        xxhdpi = new JCheckBox(Constants.XXHDPI);
-        xxxhdpi = new JCheckBox(Constants.XXXHDPI);
-
-        /** Set to false at the beginning */ 
-        ldpi.setSelected(true);
-        mdpi.setEnabled(false);
-        hdpi.setEnabled(false);
-        hdpi.setEnabled(false);
-        xhdpi.setEnabled(false);
-        xxhdpi.setEnabled(false);
-        xxxhdpi.setEnabled(false);
-
-        sizePanel.add(ldpi);
-        sizePanel.add(mdpi);
-        sizePanel.add(hdpi);
-        sizePanel.add(xhdpi);
-        sizePanel.add(xxhdpi);
-        sizePanel.add(xxxhdpi);
-
-        mainFrame.add(sizePanel, gbc);
-
-        /**
-         * Start Button
-         */
-        gbc.gridx = 0;
-        gbc.gridy = 4;
-        gbc.weightx = 0.5;
-        gbc.weighty = 0.125;
+        gbc.weighty = 0.25;
         startBtn = new JButton();
         startBtn.setFont(new Font(Constants.LUCIA_GRANDE, Font.BOLD | Font.ITALIC, 14));
         startBtn.setText(Constants.GO);
@@ -220,80 +177,6 @@ public class MainGUI {
         }
     }
 
-    private void baseSizeListener(ItemEvent e) {
-        switch (baseSizeCombo.getSelectedIndex()) {
-            case 0:
-                ldpi.setEnabled(true);
-                ldpi.setSelected(true);
-                mdpi.setEnabled(false);
-                hdpi.setEnabled(false);
-                xhdpi.setEnabled(false);
-                xxhdpi.setEnabled(false);
-                xxxhdpi.setEnabled(false);
-                break;
-            case 1:
-                ldpi.setEnabled(true);
-                ldpi.setSelected(true);
-                mdpi.setEnabled(true);
-                mdpi.setSelected(true);
-                hdpi.setEnabled(false);
-                xhdpi.setEnabled(false);
-                xxhdpi.setEnabled(false);
-                xxxhdpi.setEnabled(false);
-                break;
-            case 2:
-                ldpi.setEnabled(true);
-                ldpi.setSelected(true);
-                mdpi.setEnabled(true);
-                mdpi.setSelected(true);
-                hdpi.setEnabled(true);
-                hdpi.setSelected(true);
-                xhdpi.setEnabled(false);
-                xxhdpi.setEnabled(false);
-                xxxhdpi.setEnabled(false);
-                break;
-            case 3:
-                ldpi.setEnabled(true);
-                ldpi.setSelected(true);
-                mdpi.setEnabled(true);
-                mdpi.setSelected(true);
-                hdpi.setEnabled(true);
-                hdpi.setSelected(true);
-                xhdpi.setEnabled(true);
-                xhdpi.setSelected(true);
-                xxhdpi.setEnabled(false);
-                xxxhdpi.setEnabled(false);
-                break;
-            case 4:
-                ldpi.setEnabled(true);
-                ldpi.setSelected(true);
-                mdpi.setEnabled(true);
-                mdpi.setSelected(true);
-                hdpi.setEnabled(true);
-                hdpi.setSelected(true);
-                xhdpi.setEnabled(true);
-                xhdpi.setSelected(true);
-                xxhdpi.setEnabled(true);
-                xxhdpi.setSelected(true);
-                xxxhdpi.setEnabled(false);
-                break;
-            case 5:
-                ldpi.setEnabled(true);
-                ldpi.setSelected(true);
-                mdpi.setEnabled(true);
-                mdpi.setSelected(true);
-                hdpi.setEnabled(true);
-                hdpi.setSelected(true);
-                xhdpi.setEnabled(true);
-                xhdpi.setSelected(true);
-                xxhdpi.setEnabled(true);
-                xxhdpi.setSelected(true);
-                xxxhdpi.setEnabled(true);
-                xxxhdpi.setSelected(true);
-                break;
-        }
-    }
-
     private void outputImgAction(ActionEvent e) {
         selectOutDir.setCurrentDirectory(new File("."));
         selectOutDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -312,7 +195,7 @@ public class MainGUI {
 
         if (!openURL.getText().isEmpty() && !outputURL.getText().isEmpty()) {
             try {
-                assetGenerator.scaleAsset(selectedFile, selectedFile.getName(), outputDir);
+                assetGenerator.scaleThumbnailator(selectedFile, selectedFile.getName(), baseSizeCombo.getSelectedIndex(), outputDir);
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(mainFrame, Constants.ERROR_MESSAGE + ex, Constants.ERROR, JOptionPane.ERROR_MESSAGE);
             }
