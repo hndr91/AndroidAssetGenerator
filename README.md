@@ -1,5 +1,7 @@
 # Android Asset Generator
 Generate general asset with no worry
+# Download
+Android Asset Generator currently still apha version. Download [Aplha-AndroidAssetGenerator-V0.1.0.jar](https://drive.google.com/file/d/0B1gD3P_CVk2GMW4xbWV3bDh3NjQ/view?usp=sharing)
 # 3rd Party Library
 1. [Apache Commons IO](https://commons.apache.org/proper/commons-io/)
 2. [Thumbnailator](https://github.com/coobird/thumbnailator)
